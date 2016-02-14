@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pitch Presentation</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Pitch Presentation">
+  <meta name="author" content="Susann Vorberg">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Pitch Presentation</h1>
+    <h2>The game of Jeopardy</h2>
+    <p>Susann Vorberg<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This presentation is part of the assignment for the <a href="https://www.coursera.org/learn/data-products">Coursera Developing Data
+Products course</a>.</p>
+
+<p>It is thought to be a pitch presentation for an application developped with
+the R package Shiny. I developed a Shiny App that simulates the famous TV Show
+Jeopardy in form of a quizz. The Shiny App can be found at:</p>
+
+<p><a href="https://susannvorberg.shinyapps.io/data_products_shiny_quizz/">https://susannvorberg.shinyapps.io/data_products_shiny_quizz/</a></p>
+
+<p>In the following slides I will give background information regarding
+the game Jeopardy and the dataset I have used.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Jeopardy!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>is an American TV game show, that was first aired on NBC on March 30th, 1964. </p>
+
+<p><strong>Gameplay</strong></p>
+
+<p>Three contestents and a returning champion compete in a quiz game comprising three rounds</p>
+
+<ul>
+<li>Jeopardy!</li>
+<li>Double Jeopardy!</li>
+<li>Final Jeopardy!</li>
+</ul>
+
+<p>Questions come from a wide range of topics, including history and current events, the sciences, the arts, popular culture, literature, and languages.
+Category titles often feature puns, wordplay, or shared themes, and the host will regularly remind contestants of topics or place emphasis on category themes before the start of the round.</p>
+
+<p>Source <a href="https://en.wikipedia.org/wiki/Jeopardy">https://en.wikipedia.org/wiki/Jeopardy</a>!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Jeopardy! dataset was taken
+from
+<a href="https://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file">https://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file</a></p>
+
+<p>It contains 216,930 Jeopardy questions that were gathered from
+<a href="http://www.j-archive.com">www.j-archive.com</a>. The dataset comes as an unorderd list with the follwing
+entries: </p>
+
+<pre><code class="r">library(rjson)
+json_data &lt;- fromJSON(file=&#39;/usr/users/svorber/work/scripts/data_products_shiny_quizz/app/JEOPARDY_QUESTIONS1.json&#39;)
+length(json_data)
+</code></pre>
+
+<pre><code>## [1] 216930
+</code></pre>
+
+<pre><code class="r">names(json_data[[1]])
+</code></pre>
+
+<pre><code>## [1] &quot;category&quot;    &quot;air_date&quot;    &quot;question&quot;    &quot;value&quot;       &quot;answer&quot;     
+## [6] &quot;round&quot;       &quot;show_number&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The Jeopardy Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Jeopardy Shiny App presents a simplified version of Jeopardy! that can be extended for several features. </p>
+
+<p>Instead of playing against other contestents, the App features a single player game. 
+By pressign the submit button, the player&#39;s answer will be compared against the correct answer in the dataset. 
+If the answer is correct, the value of the question is added to the player&#39;s score. 
+In case of an incorrect answer, the value of the question is substracted from the player&#39;s score. 
+A player can always skip questions, obtaining one penalty point. </p>
+
+<p>Future extensions of the App</p>
+
+<ul>
+<li>filtering questions for categories</li>
+<li>multiplayer mode</li>
+<li>plotting statistics of the gameplay</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Jeopardy!'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Dataset'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Jeopardy Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
