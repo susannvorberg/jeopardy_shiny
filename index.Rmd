@@ -30,8 +30,6 @@ the game Jeopardy and the dataset I have used.
 
 is an American TV game show, that was first aired on NBC on March 30th, 1964. 
 
-__Gameplay__
-
 Three contestents and a returning champion compete in a quiz game comprising three rounds
 - Jeopardy!
 - Double Jeopardy!
