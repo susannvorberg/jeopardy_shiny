@@ -30,8 +30,6 @@ the game Jeopardy and the dataset I have used.
 
 is an American TV game show, that was first aired on NBC on March 30th, 1964. 
 
-__Gameplay__
-
 Three contestents and a returning champion compete in a quiz game comprising three rounds
 - Jeopardy!
 - Double Jeopardy!
@@ -59,7 +57,7 @@ entries:
 
 ```r
 library(rjson)
-json_data <- fromJSON(file='/usr/users/svorber/work/scripts/data_products_shiny_quizz/app/JEOPARDY_QUESTIONS1.json')
+json_data <- fromJSON(file='../app/JEOPARDY_QUESTIONS1.json')
 length(json_data)
 ```
 

@@ -56,7 +56,7 @@ entries:
 
 ```{r, size="scriptsize"}
 library(rjson)
-json_data <- fromJSON(file='/usr/users/svorber/work/scripts/data_products_shiny_quizz/app/JEOPARDY_QUESTIONS1.json')
+json_data <- fromJSON(file='../app/JEOPARDY_QUESTIONS1.json')
 length(json_data)
 names(json_data[[1]])
 ```
